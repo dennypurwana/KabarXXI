@@ -1,0 +1,227 @@
+PODS:
+  - Alamofire (4.8.2)
+  - CarbonKit (2.2.2)
+  - DropDown (2.3.13)
+  - Firebase (5.20.2):
+    - Firebase/Core (= 5.20.2)
+  - Firebase/AdMob (5.20.2):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (~> 7.42)
+  - Firebase/Core (5.20.2):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.8.1)
+  - Firebase/CoreOnly (5.20.2):
+    - FirebaseCore (= 5.4.1)
+  - Firebase/Messaging (5.20.2):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.5.0)
+  - FirebaseAnalytics (5.8.1):
+    - FirebaseCore (~> 5.4)
+    - FirebaseInstanceID (~> 3.8)
+    - GoogleAppMeasurement (= 5.8.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseAnalyticsInterop (1.2.0)
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.8.1):
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/UserDefaults (~> 5.2)
+  - FirebaseMessaging (3.5.0):
+    - FirebaseAnalyticsInterop (~> 1.1)
+    - FirebaseCore (~> 5.2)
+    - FirebaseInstanceID (~> 3.6)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/Reachability (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+    - Protobuf (~> 3.1)
+  - Floaty (4.1.0)
+  - Google-Mobile-Ads-SDK (7.42.2):
+    - GoogleAppMeasurement (~> 5.7)
+  - GoogleAppMeasurement (5.8.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.6.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.6.0)
+  - GoogleUtilities/Logger (5.6.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.6.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.6.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.6.0)"
+  - GoogleUtilities/Reachability (5.6.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.6.0):
+    - GoogleUtilities/Logger
+  - KeychainSwift (14.0.0)
+  - Kingfisher (4.10.1)
+  - MaterialComponents/AnimationTiming (81.1.0)
+  - MaterialComponents/Buttons (81.1.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - "MaterialComponents/Buttons+ButtonThemer (81.1.0)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+ShapeThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+    - MaterialComponents/Palettes
+  - "MaterialComponents/Buttons+ColorThemer (81.1.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+ShapeThemer (81.1.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Shape
+  - "MaterialComponents/Buttons+TypographyThemer (81.1.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Ink (81.1.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/Palettes (81.1.0)
+  - MaterialComponents/private/Application (81.1.0)
+  - MaterialComponents/private/Math (81.1.0)
+  - MaterialComponents/Ripple (81.1.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+  - MaterialComponents/schemes/Color (81.1.0)
+  - MaterialComponents/schemes/Shape (81.1.0):
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/schemes/Typography (81.1.0):
+    - MaterialComponents/Typography
+  - MaterialComponents/ShadowElevations (81.1.0)
+  - MaterialComponents/ShadowLayer (81.1.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (81.1.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (81.1.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (81.1.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
+  - Moya/Core (13.0.0):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.0):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - Protobuf (3.7.0)
+  - Realm (3.14.1):
+    - Realm/Headers (= 3.14.1)
+  - Realm/Headers (3.14.1)
+  - RealmSwift (3.14.1):
+    - Realm (= 3.14.1)
+  - Result (4.1.0)
+  - RxSwift (4.5.0)
+  - UIScrollView-InfiniteScroll (1.0.2)
+  - XLPagerTabStrip (9.0.0)
+
+DEPENDENCIES:
+  - CarbonKit
+  - DropDown
+  - Firebase
+  - Firebase/AdMob
+  - Firebase/Core
+  - Firebase/Messaging
+  - Floaty (~> 4.1.0)
+  - Google-Mobile-Ads-SDK
+  - KeychainSwift (~> 14.0)
+  - Kingfisher (~> 4.0)
+  - MaterialComponents/Buttons
+  - "MaterialComponents/Buttons+ButtonThemer"
+  - Moya/RxSwift (~> 13.0)
+  - RealmSwift
+  - UIScrollView-InfiniteScroll (~> 1.0.0)
+  - XLPagerTabStrip (~> 9.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CarbonKit
+    - DropDown
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - Floaty
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - KeychainSwift
+    - Kingfisher
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
+    - Moya
+    - nanopb
+    - Protobuf
+    - Realm
+    - RealmSwift
+    - Result
+    - RxSwift
+    - UIScrollView-InfiniteScroll
+    - XLPagerTabStrip
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CarbonKit: 0dec4738fa489b4c043a5f850c27fd0dbefb57cc
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
+  FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
+  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
+  FirebaseMessaging: 4235f949ce1c4e827aeb19705ba5c53f9b85aa10
+  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
+  Google-Mobile-Ads-SDK: 8f4f7e793bfd3fff5b082181b54112f81b579a67
+  GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
+  GoogleUtilities: f44b068df02195da10409f415bd8c98439cd70fa
+  KeychainSwift: d3cce449feb5198907aa3c50ae7409fdbd9d3e20
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  MaterialComponents: c2045515505992357e210b33cb3ffc3a404a14fd
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
+  Moya: 161263550064ff8a4948e8ff63137fd72a876292
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
+  RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
+
+PODFILE CHECKSUM: 92c14d60d11071e0515bd765624099ec9b700d31
+
+COCOAPODS: 1.7.0.beta.3
