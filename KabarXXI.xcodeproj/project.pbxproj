@@ -25,6 +25,9 @@
 		812F5135214EB5F6004CEC77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F5134214EB5F6004CEC77 /* User.swift */; };
 		812F5137214EB695004CEC77 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F5136214EB695004CEC77 /* UserServices.swift */; };
 		814147B22272246900A06B62 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814147B12272246900A06B62 /* LoginResponse.swift */; };
+		816611862287A83F00D2ABF0 /* ApplicationSettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816611852287A83F00D2ABF0 /* ApplicationSettingService.swift */; };
+		816611882287A87700D2ABF0 /* ApplicationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816611872287A87700D2ABF0 /* ApplicationSetting.swift */; };
+		8166118A2287A88600D2ABF0 /* ApplicationSettingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816611892287A88600D2ABF0 /* ApplicationSettingResponse.swift */; };
 		816623E92150CE8D00CFC4AF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816623E82150CE8D00CFC4AF /* CategoryViewController.swift */; };
 		816623EB2150D58C00CFC4AF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816623EA2150D58C00CFC4AF /* Category.swift */; };
 		816623ED2150D63500CFC4AF /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816623EC2150D63500CFC4AF /* CategoryResponse.swift */; };
@@ -134,6 +137,9 @@
 		812F5134214EB5F6004CEC77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		812F5136214EB695004CEC77 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		814147B12272246900A06B62 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		816611852287A83F00D2ABF0 /* ApplicationSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettingService.swift; sourceTree = "<group>"; };
+		816611872287A87700D2ABF0 /* ApplicationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSetting.swift; sourceTree = "<group>"; };
+		816611892287A88600D2ABF0 /* ApplicationSettingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettingResponse.swift; sourceTree = "<group>"; };
 		816623E82150CE8D00CFC4AF /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		816623EA2150D58C00CFC4AF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		816623EC2150D63500CFC4AF /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
@@ -335,6 +341,8 @@
 				814147B12272246900A06B62 /* LoginResponse.swift */,
 				81FAFF682275D5DD00010ECF /* Comment.swift */,
 				81FAFF6A2275D67700010ECF /* CommentResponse.swift */,
+				816611872287A87700D2ABF0 /* ApplicationSetting.swift */,
+				816611892287A88600D2ABF0 /* ApplicationSettingResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 				816623EE2150D72E00CFC4AF /* NewsServices.swift */,
 				81B3FEA9226DBD9800259553 /* VideoServices.swift */,
 				81FAFF662275AF1B00010ECF /* CommentServices.swift */,
+				816611852287A83F00D2ABF0 /* ApplicationSettingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -739,6 +748,7 @@
 				81756E80227018410000FFC4 /* NewsCommentViewCell.swift in Sources */,
 				81D48F1E227C286800F95C48 /* BookmarkNewsViewController.swift in Sources */,
 				812F5122214D5B03004CEC77 /* SignUpViewController.swift in Sources */,
+				8166118A2287A88600D2ABF0 /* ApplicationSettingResponse.swift in Sources */,
 				81E76799215003C500D6B654 /* UIColor.swift in Sources */,
 				812F5127214E64C3004CEC77 /* LoginViewController.swift in Sources */,
 				810FDA582155C1AF00D78C2C /* News.swift in Sources */,
@@ -772,8 +782,10 @@
 				8166240D2151543100CFC4AF /* NotificationsResponse.swift in Sources */,
 				8189C285226EB1BA00122ADA /* UILabel.swift in Sources */,
 				81756E87227053D80000FFC4 /* MD5Encrypt.swift in Sources */,
+				816611882287A87700D2ABF0 /* ApplicationSetting.swift in Sources */,
 				812F5130214E718C004CEC77 /* LaunchScreenViewController.swift in Sources */,
 				81756E7D227017D30000FFC4 /* NewsCommentViewController.swift in Sources */,
+				816611862287A83F00D2ABF0 /* ApplicationSettingService.swift in Sources */,
 				81B9140C214FA674004A3855 /* VideoViewController.swift in Sources */,
 				816623ED2150D63500CFC4AF /* CategoryResponse.swift in Sources */,
 			);
