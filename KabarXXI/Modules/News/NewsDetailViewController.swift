@@ -55,10 +55,26 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+   
+
+@objc func btnShareTapped(_ sender: Any) {
+    
+    let activityVC = UIActivityViewController(activityItems: [Constant.ShareNewsURL], applicationActivities: nil)
+    activityVC.popoverPresentationController?.sourceView = self.view
+    self.present(activityVC, animated: true, completion: nil)
+    
+}
+    
     
     func setupViews(){
         
         self.navigationItem.title = "Detail Berita"
+        let btnShare = UIButton(frame: CGRect(x:0,y:0,width:10,height:10))
+        btnShare.setImage(UIImage(named: "share")?.imageWithColor(color1: UIColor.white), for: .normal)
+        btnShare.addTarget(self,action: #selector(btnShareTapped), for: .touchUpInside)
+        let shareButton = UIBarButtonItem(customView: btnShare)
+        self.navigationItem.setRightBarButtonItems([shareButton], animated: true)
+        
         titleNews.text = titleNews_
         descNews.htmlToString(html: newsDescriptions_ ?? "")
         createdDate.text = Date.getFormattedDate(dateStringParam: createdDate_)
@@ -86,7 +102,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        //loadNews(keyword ?? "")
+    
     }
     
     
@@ -111,7 +127,6 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         newsProviderServices.request(.getRelatedNews(keyword: keyword)) { [weak self] result in
             guard case self = self else { return }
             
-            // 3
             switch result {
             case .success(let response):
                 do {
@@ -130,13 +145,10 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
             case .failure: break
             }
             
-            //self?.refreshControl_?.endRefreshing()
             self?.relatedNewsTableView.finishInfiniteScroll()
         }
         
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
