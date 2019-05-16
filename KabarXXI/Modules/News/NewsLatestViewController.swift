@@ -3,7 +3,6 @@ import UIKit
 import RxSwift
 import Kingfisher
 import UIScrollView_InfiniteScroll
-import RealmSwift
 import CoreSpotlight
 import MobileCoreServices
 import Firebase

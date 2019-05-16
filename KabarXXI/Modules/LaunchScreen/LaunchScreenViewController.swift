@@ -4,11 +4,14 @@ class LaunchScreenViewController: UIViewController {
     
     @IBOutlet var loadingBar: UIView!
     
-    let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? Int
+    let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    
     var appSettingArray : [ApplicationSetting] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         startHomepage()
+       
         
     }
     
@@ -42,11 +45,13 @@ class LaunchScreenViewController: UIViewController {
                     
                     self?.appSettingArray = responses.data ?? []
                     
+                    
                     if(responses.data?.count ?? 0 > 0){
                         
-                        let versionCode = self?.appSettingArray[0].versionCode ?? 0
-                        
-                        if versionCode > self?.appVersion ?? 0 {
+                        let versionCode = self?.appSettingArray[0].iosVersionCode ?? 0
+                        let appVersionConvert = Int((self?.appVersion)!)
+                        print(appVersionConvert ?? "0")
+                        if versionCode > appVersionConvert! {
                             
                             self?.loadingBar.isHidden = true
                             let  alert = UIAlertController(title: "Info", message:                 "Silahkan update aplikasi anda.", preferredStyle: .alert)

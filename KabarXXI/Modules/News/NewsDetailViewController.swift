@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import Floaty
 
 
 class NewsDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate   {
     
-    
-    let floaty = Floaty()
     
     var newsArray: [News] = []
     var keyword: String?
