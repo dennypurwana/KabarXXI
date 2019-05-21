@@ -13,7 +13,7 @@
         <!--Category-->
         <scene sceneID="oaP-k6-AZZ">
             <objects>
-                <viewController storyboardIdentifier="category" title="Category" id="DSO-s9-BdJ" customClass="CategoryViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="category" title="Category" id="DSO-s9-BdJ" customClass="CategoryViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="q6Q-PB-VhU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -25,7 +25,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="4X6-jc-Og9" customClass="CategoryCollectionViewCell" customModule="KabarXXI_" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="4X6-jc-Og9" customClass="CategoryCollectionViewCell" customModule="KabarXXI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="175" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -77,7 +77,7 @@
         <!--Detail Course View Controller-->
         <scene sceneID="oes-oV-ILK">
             <objects>
-                <viewController storyboardIdentifier="detailCourse" id="mNB-8h-HqJ" customClass="DetailCourseViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailCourse" id="mNB-8h-HqJ" customClass="DetailCourseViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8gZ-cX-VO4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,7 +163,7 @@
         <!--Profile View Controller-->
         <scene sceneID="wu6-49-UI5">
             <objects>
-                <viewController storyboardIdentifier="profile" id="jbG-sV-RDP" customClass="ProfileViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="jbG-sV-RDP" customClass="ProfileViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vsu-sP-DdS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,7 +315,7 @@
         <!--Tabbar Menu View Controller-->
         <scene sceneID="lQD-Mm-cMO">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarMenu" id="1qw-C3-jZJ" customClass="TabbarMenuViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarMenu" id="1qw-C3-jZJ" customClass="TabbarMenuViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L7j-gi-R8x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -437,7 +437,7 @@
         <!--Home View Controller-->
         <scene sceneID="gcI-Yh-jDs">
             <objects>
-                <viewController id="fab-Sa-oEP" customClass="HomeViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="fab-Sa-oEP" customClass="HomeViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ue-yX-9vA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -453,7 +453,7 @@
         <!--Video View Controller-->
         <scene sceneID="ucZ-qU-XZ6">
             <objects>
-                <viewController id="DBJ-n8-baz" customClass="VideoViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DBJ-n8-baz" customClass="VideoViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5Ak-Hp-W43">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
