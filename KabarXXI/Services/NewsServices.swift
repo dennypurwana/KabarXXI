@@ -8,6 +8,7 @@ let newsProviderServices = MoyaProvider<NewsServices>()
 enum NewsServices{
    
     case getLatestNews(Int)
+    case getDetailNews(Int)
     case getMainNews(Int)
     case getPopularNews(Int)
     case getCategory()
@@ -42,6 +43,9 @@ extension NewsServices :TargetType{
             
         case .getRelatedNews(let keyword):
             return "/public/v1/news/related/\(keyword)"
+            
+        case .getDetailNews(let id):
+            return "/public/v1/news/detail/\(id)"
             
         case .getNewsByCategory( _,let categoryName):
             return "/public/v1/news/newsByCategory/\(categoryName)"
@@ -121,6 +125,12 @@ extension NewsServices :TargetType{
             
             
         case .getNotifications():
+            return .requestParameters(
+                parameters: [:],
+                encoding: URLEncoding.default
+            )
+            
+        case .getDetailNews(_):
             return .requestParameters(
                 parameters: [:],
                 encoding: URLEncoding.default

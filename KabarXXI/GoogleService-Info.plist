@@ -19,20 +19,18 @@
 	<key>STORAGE_BUCKET</key>
 	<string>kabarxxi-1f30e.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<true/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:19755219285:ios:540a8839df241846</string>
 	<key>DATABASE_URL</key>
 	<string>https://kabarxxi-1f30e.firebaseio.com</string>
-	<key>ADMOB_APP_ID</key>
-	<string>ca-app-pub-2551441341997407~4062270142</string>
 </dict>
 </plist>

@@ -1,50 +1,116 @@
+//
+//  AppDelegate.swift
+//  KabarKabari
+//
+//  Created by Emerio-Mac2 on 19/05/19.
+//  Copyright © 2019 Emerio-Mac2. All rights reserved.
+//
 
 import UIKit
-import Firebase
-import GoogleMobileAds
+
 import UserNotifications
+import FirebaseInstanceID
 import FirebaseMessaging
+import Firebase
 
-
-enum ContentType: String {
-    case topic = "allnews"
-}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-    let gcmMessageIDKey = "gcm.message_id"
-
-
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
-        print("finish launching")
+class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterDelegate, MessagingDelegate{
+    
+     var window: UIWindow?
+     let gcmMessageIDKey = "gcm.message_id"
+     var notification : Bool = false
+     var id : Int = 0
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        setupPushNotificationsHandling(application)
+        return true
+    }
+    
+    private func setupPushNotificationsHandling(_ application: UIApplication) {
         FirebaseApp.configure()
         
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-        
         application.registerForRemoteNotifications()
-        Messaging.messaging().delegate = self
-//        InstanceID.instanceID().instanceID { (result, _) in
-//            if result != nil {
-//                // Receive notifications from the "all" topic
-//                Messaging.messaging().subscribe(toTopic: "allnews")
-//            }
-//        }
-        return true
+        
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, _) in }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Receive notifications from the "all" topic
+        subscribeToNotificationsTopic(topic: "allnews")
+    }
+    
+    func subscribeToNotificationsTopic(topic: String) {
+        // Retry until the notifications subscription is successful
+        DispatchQueue.global().async {
+            var subscribed = false
+            while !subscribed {
+                let semaphore = DispatchSemaphore(value: 0)
+                
+                InstanceID.instanceID().instanceID { (result, error) in
+                    if let result = result {
+                        // Device token can be used to send notifications exclusively to this device
+                        print("Device token \(result.token)")
+                        
+                        // Subscribe
+                        Messaging.messaging().subscribe(toTopic: topic)
+                        
+                        // Notify semaphore
+                        subscribed = true
+                        semaphore.signal()
+                    }
+                }
+                
+                // Set a 3 seconds timeout
+                let dispatchTime = DispatchTime.now() + DispatchTimeInterval.seconds(3)
+                _ = semaphore.wait(timeout: dispatchTime)
+            }
+        }
+    }
+    
+        func setRootViewController(_ viewController: UIViewController) {
+    
+            UIView.transition(with: window!, duration: 0.3, options: [.transitionCrossDissolve, .allowAnimatedContent], animations: { () -> Void in
+    
+                let oldState = UIView.areAnimationsEnabled
+    
+                UIView.setAnimationsEnabled(false)
+                self.window?.rootViewController = viewController
+                UIView.setAnimationsEnabled(oldState)
+    
+            }, completion: nil)
+        }
+    
+        func showMainViewController() {
+    
+            let storyboard = UIStoryboard(name: "TabbarMenu", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "tabbarMenu")
+    
+            setRootViewController(vc)
+        }
+    
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        print(userInfo["id"] as Any)
+        self.notification = true
+        let idString = userInfo["id"] as? String
+        self.id = Int(idString ?? "0") ?? 0
+        showMainViewController()
+        completionHandler()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        
+        completionHandler([.alert, .sound])
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -68,92 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-   
-    func setRootViewController(_ viewController: UIViewController) {
-        
-        UIView.transition(with: window!, duration: 0.3, options: [.transitionCrossDissolve, .allowAnimatedContent], animations: { () -> Void in
-            
-            let oldState = UIView.areAnimationsEnabled
-            
-            UIView.setAnimationsEnabled(false)
-            self.window?.rootViewController = viewController
-            UIView.setAnimationsEnabled(oldState)
-            
-        }, completion: nil)
-    }
     
-    func showMainViewController() {
-        
-        let storyboard = UIStoryboard(name: "TabbarMenu", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "tabbarMenu")
-        
-        setRootViewController(vc)
-    }
-
-    
-    
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        print(userInfo)
-       
-    }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-       
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        print(userInfo)
-        
-        completionHandler(UIBackgroundFetchResult.newData)
-    }
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        
-        print(userInfo)
-        
-        guard let aps = userInfo["aps"] as? Dictionary<String, Any> else { return }
-        guard let alert = aps["alert"] as? String else { return }
-       
-        
-        completionHandler([])
-    }
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        
-        print(userInfo)
-        completionHandler()
-    }
 
-}
-
-// MARK: - MessagingDelegate
-extension AppDelegate: MessagingDelegate {
-    
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        
-        let dataDict:[String: String] = ["token": fcmToken]
-        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-        
-    }
-    
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Message data : \(remoteMessage.appData)")
-    }
-}

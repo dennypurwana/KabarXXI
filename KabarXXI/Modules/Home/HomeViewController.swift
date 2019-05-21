@@ -20,20 +20,19 @@ class HomeViewController: UIViewController
         super.viewDidLoad()
         
        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if (appDelegate.notification) {
+            showDetailNewsController(with: appDelegate.id, with: "notifications")
+        }
         setupNavBar()
         setupTabbarNews()
-       
-//        interstitial = createAndLoadIntertitial()
-//
-//        if interstitial.isReady {
-//
-//            interstitial.present(fromRootViewController: self)
-//
-//        }
-//        else {
-//
-//            print("ads interstial not ready")
-//        }
+        interstitial = createAndLoadIntertitial()
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        }
+        else {
+            print("ads interstial not ready")
+        }
       
     }
     
@@ -61,7 +60,6 @@ class HomeViewController: UIViewController
         interstitial = createAndLoadIntertitial()
     }
    
-    
     
     func createAndLoadIntertitial() -> GADInterstitial{
         

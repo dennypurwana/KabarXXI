@@ -19,6 +19,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
     var imageNews_ : String = ""
     var createdDate_ : String = ""
     var category_ : String = ""
+    var type_ : String = ""
     var idNews_:Int = 0
     var releaseDate: Date = Date(timeIntervalSince1970: 0)
     
@@ -47,7 +48,16 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        setupViews()
+        
+        if(type_ == "notifications"){
+            
+            getDetailNews(idNews_)
+        }
+        else
+        {
+           setupViews()
+            
+        }
        
         
     }
@@ -80,8 +90,6 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
         updateViews(idNews_)
         loadNews(keyword ?? "")
-        
-        
         
     }
     
@@ -147,6 +155,39 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+    func getDetailNews(_ id: Int) {
+        
+        newsProviderServices.request(.getDetailNews(id)) { (result) in
+            
+            switch result {
+            case .success(let response):
+                do {
+                    
+                    
+                    let decoder = JSONDecoder()
+                    let responseNews = try decoder.decode(NewsDetailResponse.self, from:
+                        response.data) //Decode JSON Response Data
+                    
+                    print(responseNews)
+                    self.titleNews_ = responseNews.data?.title
+                    self.newsDescriptions_ = responseNews.data?.description
+                    self.createdDate_ = (responseNews.data?.createdDate)!
+                    self.category_ = responseNews.data?.category?.categoryName ?? ""
+                    self.imageNews_ = responseNews.data?.base64Image ?? ""
+                    self.setupViews()
+                    
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
+            case .failure(let error):
+                print("error : \(error)")
+                
+            }
+        }
+        
+    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
     }
@@ -168,7 +209,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         let newsData = newsArray[indexPath.item]
         
-        showDetailNewsController(with: newsData.id ?? 0,with: newsData.title ?? "", with: newsData.createdDate ?? "", with: newsData.base64Image!, with: newsData.description ?? "",with: newsData.keyword ?? "",with:newsData.category?.categoryName ?? "")
+        showDetailNewsController(with: newsData.id ?? 0,with: newsData.title ?? "", with: newsData.createdDate ?? "", with: newsData.base64Image!, with: newsData.description ?? "",with: newsData.keyword ?? "",with:newsData.category?.categoryName ?? "",with:"passingData")
         
     }
     
@@ -187,7 +228,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
 // MARK: - UIViewController
 extension UIViewController {
     
-    func showDetailNewsController(with idNews: Int,with title: String, with createdDate: String, with imageNews: String, with description: String,with keyword: String,with categoryName: String) {
+    func showDetailNewsController(with idNews: Int,with title: String, with createdDate: String, with imageNews: String, with description: String,with keyword: String,with categoryName: String, with type : String) {
         
         let storyboard = UIStoryboard(name: "News", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "newsDetail") as! NewsDetailViewController
@@ -198,8 +239,23 @@ extension UIViewController {
         vc.createdDate_ = createdDate
         vc.keyword = keyword
         vc.category_ = categoryName
+        vc.type_ = type
         navigationController?.pushViewController(vc, animated: true)
         
     }
+    
+    func showDetailNewsController(with idNews: Int, with type : String) {
+
+        let storyboard = UIStoryboard(name: "News", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "newsDetail") as! NewsDetailViewController
+        
+        vc.idNews_ = idNews
+        vc.type_ = type
+    
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
 }
 

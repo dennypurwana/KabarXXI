@@ -19,7 +19,9 @@ class LaunchScreenViewController: UIViewController {
         loadingBar.isHidden = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             
-            self.getApplicationSetting()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.showMainViewController()
+           // self.getApplicationSetting()
             
         }
     }
