@@ -63,10 +63,10 @@ class HomeViewController: UIViewController
     
     func createAndLoadIntertitial() -> GADInterstitial{
         
-        let intertitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let intertitial = GADInterstitial(adUnitID: "ca-app-pub-8483206325913349/5655965527")
         intertitial.delegate = self
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
+        //request.testDevices = [kGADSimulatorID]
         intertitial.load(request)
         return intertitial
         

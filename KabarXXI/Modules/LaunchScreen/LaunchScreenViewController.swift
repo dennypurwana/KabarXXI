@@ -20,8 +20,7 @@ class LaunchScreenViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.showMainViewController()
-           // self.getApplicationSetting()
+            self.getApplicationSetting()
             
         }
     }
@@ -50,10 +49,12 @@ class LaunchScreenViewController: UIViewController {
                     
                     if(responses.data?.count ?? 0 > 0){
                         
-                        let versionCode = self?.appSettingArray[0].iosVersionCode ?? 0
+                        let iosVersionCode = self?.appSettingArray[0].iosVersionCode ?? 0
                         let appVersionConvert = Int((self?.appVersion)!)
                         print(appVersionConvert ?? "0")
-                        if versionCode > appVersionConvert! {
+                        print(iosVersionCode ?? "0")
+                        
+                        if iosVersionCode > appVersionConvert! {
                             
                             self?.loadingBar.isHidden = true
                             let  alert = UIAlertController(title: "Info", message:                 "Silahkan update aplikasi anda.", preferredStyle: .alert)
@@ -71,7 +72,6 @@ class LaunchScreenViewController: UIViewController {
                             appDelegate.showMainViewController()
                             
                         }
-                        
                     }
                         
                     else {

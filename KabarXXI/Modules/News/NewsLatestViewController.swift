@@ -12,9 +12,7 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
 
     @IBOutlet var newsTableView: UITableView!
     var interstitial: GADInterstitial!
-    
-    
-    let adUnitID = "ca-app-pub-3940256099942544/3986624511"
+    let adUnitID = "ca-app-pub-8483206325913349/4378542873"
     var indicator = UIActivityIndicatorView()
     let numAdsToLoad = 5
     var nativeAds = [GADUnifiedNativeAd]()
@@ -78,7 +76,7 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
                                options: [options])
         adLoader.delegate = self
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
+       // request.testDevices = [kGADSimulatorID]
         adLoader.load(request)
         
     }

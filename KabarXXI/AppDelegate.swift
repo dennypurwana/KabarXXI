@@ -99,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
+        print("userinfolo\(userInfo)")
         print(userInfo["id"] as Any)
         self.notification = true
         let idString = userInfo["id"] as? String
