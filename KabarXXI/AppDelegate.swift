@@ -102,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         print("userinfolo\(userInfo)")
         print(userInfo["id"] as Any)
         self.notification = true
-        let idString = userInfo["id"] as? String
+        let idString = userInfo["newsId"] as? String
         self.id = Int(idString ?? "0") ?? 0
         showMainViewController()
         completionHandler()

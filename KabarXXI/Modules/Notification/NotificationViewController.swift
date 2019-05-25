@@ -12,6 +12,7 @@ class NotificationViewController: UITableViewController {
 
     @IBOutlet var notificationTableView: UITableView!
     
+    
     var notificationArray: [Notifications] = []
     
     var refreshControl_: UIRefreshControl?
@@ -27,6 +28,7 @@ class NotificationViewController: UITableViewController {
         setupViews()
         refreshControl_!.beginRefreshing()
         self.navigationItem.title = "Notifications"
+        self.navigationController?.navigationBar.topItem?.title = ""
         loadNotifications()
         
         
@@ -35,6 +37,7 @@ class NotificationViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = "Notifications"
         loadNotifications()
     }
     
@@ -101,6 +104,13 @@ class NotificationViewController: UITableViewController {
         cell.totalViews.text = "\(notifData.news.views ?? 0) dilihat"
         
         return cell
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let newsData = notificationArray[indexPath.item].news
+        showDetailNewsController(with: newsData.id ?? 0,with: newsData.title ?? "", with: newsData.createdDate ?? "", with: newsData.base64Image ?? "", with: newsData.description ?? "",with: newsData.keyword ?? "",with:newsData.category?.categoryName ?? "",with:"passingData")
         
     }
     

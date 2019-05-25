@@ -13,35 +13,35 @@
         <!--Launch Screen View Controller-->
         <scene sceneID="iV1-gj-Qe1">
             <objects>
-                <viewController id="aYe-o2-nmA" customClass="LaunchScreenViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aYe-o2-nmA" customClass="LaunchScreenViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TS1-ZH-Mt0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="l0A-RX-KOx">
-                                <rect key="frame" x="162.5" y="338" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1oQ-qX-R8x"/>
-                                    <constraint firstAttribute="width" constant="50" id="CcE-5R-Qyg"/>
-                                </constraints>
-                                <color key="color" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="iGP-ld-Yz9">
-                                <rect key="frame" x="129.5" y="176" width="116" height="133"/>
+                                <rect key="frame" x="129.5" y="267" width="116" height="133"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="2CG-Kg-wgv"/>
                                     <constraint firstAttribute="width" constant="116" id="ELz-mi-avj"/>
                                     <constraint firstAttribute="width" secondItem="iGP-ld-Yz9" secondAttribute="height" multiplier="15:8" constant="-133.375" id="dBS-WV-9Sg"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="l0A-RX-KOx">
+                                <rect key="frame" x="162" y="436" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1oQ-qX-R8x"/>
+                                    <constraint firstAttribute="width" constant="50" id="CcE-5R-Qyg"/>
+                                </constraints>
+                                <color key="color" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="l0A-RX-KOx" firstAttribute="centerX" secondItem="TS1-ZH-Mt0" secondAttribute="centerX" id="Ayu-0E-902"/>
-                            <constraint firstItem="l0A-RX-KOx" firstAttribute="firstBaseline" secondItem="iGP-ld-Yz9" secondAttribute="baseline" constant="29" id="QUB-th-2BN"/>
+                            <constraint firstItem="l0A-RX-KOx" firstAttribute="firstBaseline" secondItem="iGP-ld-Yz9" secondAttribute="baseline" constant="36" id="QUB-th-2BN"/>
                             <constraint firstItem="iGP-ld-Yz9" firstAttribute="centerX" secondItem="TS1-ZH-Mt0" secondAttribute="centerX" id="VQY-TK-lcP"/>
                             <constraint firstItem="iGP-ld-Yz9" firstAttribute="centerX" secondItem="TS1-ZH-Mt0" secondAttribute="centerX" id="ivV-ft-zky"/>
-                            <constraint firstItem="iGP-ld-Yz9" firstAttribute="top" secondItem="iO9-Ei-Bj0" secondAttribute="top" constant="156" id="jR8-V1-fuG"/>
+                            <constraint firstItem="iGP-ld-Yz9" firstAttribute="top" secondItem="iO9-Ei-Bj0" secondAttribute="top" constant="247" id="jR8-V1-fuG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iO9-Ei-Bj0"/>
                     </view>

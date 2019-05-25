@@ -31,8 +31,9 @@ class NewsCategoryViewController:  UIViewController
         setupSelectDaerahDropDown()
         selectDaerah.layer.cornerRadius = 6
         selectDaerah.layer.masksToBounds = true
-        
+        self.navigationController?.navigationBar.topItem?.title = "";
         if (category != "tips"){
+           
             self.navigationItem.title = category
            
             if(category == "Daerah"){
@@ -48,6 +49,10 @@ class NewsCategoryViewController:  UIViewController
                 
             }
             
+        }
+        else {
+            let verticalConstraint = NSLayoutConstraint(item: newsCategoryTableView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+            view.addConstraints([verticalConstraint])
         }
         
     }

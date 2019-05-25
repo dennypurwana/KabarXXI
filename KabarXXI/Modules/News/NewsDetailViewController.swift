@@ -48,9 +48,15 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.navigationItem.title = "Detail Berita"
+        self.navigationController?.navigationBar.topItem?.title = "";
+        let btnShare = UIButton(frame: CGRect(x:0,y:0,width:10,height:10))
+        btnShare.setImage(UIImage(named: "share")?.imageWithColor(color1: UIColor.white), for: .normal)
+        btnShare.addTarget(self,action: #selector(btnShareTapped), for: .touchUpInside)
+        let shareButton = UIBarButtonItem(customView: btnShare)
+        self.navigationItem.setRightBarButtonItems([shareButton], animated: true)
         
         if(type_ == "notifications"){
-            
             getDetailNews(idNews_)
         }
         else
@@ -59,6 +65,8 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
             
         }
        
+        updateViews(idNews_)
+        loadNews(keyword ?? "")
         
     }
     
@@ -74,22 +82,13 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     
     func setupViews(){
-        
-        self.navigationItem.title = "Detail Berita"
-        let btnShare = UIButton(frame: CGRect(x:0,y:0,width:10,height:10))
-        btnShare.setImage(UIImage(named: "share")?.imageWithColor(color1: UIColor.white), for: .normal)
-        btnShare.addTarget(self,action: #selector(btnShareTapped), for: .touchUpInside)
-        let shareButton = UIBarButtonItem(customView: btnShare)
-        self.navigationItem.setRightBarButtonItems([shareButton], animated: true)
-        
+       
         titleNews.text = titleNews_
         descNews.htmlToString(html: newsDescriptions_ ?? "")
         createdDate.text = Date.getFormattedDate(dateStringParam: createdDate_)
         category.text = category_
         let imageUrl = Constant.ApiUrlImage+"\(imageNews_)"
         imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
-        updateViews(idNews_)
-        loadNews(keyword ?? "")
         
     }
     
@@ -107,6 +106,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationItem.title = "Detail Berita"
     
     }
     
@@ -171,7 +171,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
                     print(responseNews)
                     self.titleNews_ = responseNews.data?.title
                     self.newsDescriptions_ = responseNews.data?.description
-                    self.createdDate_ = (responseNews.data?.createdDate)!
+                    self.createdDate_ = (responseNews.data?.createdDate) ?? ""
                     self.category_ = responseNews.data?.category?.categoryName ?? ""
                     self.imageNews_ = responseNews.data?.base64Image ?? ""
                     self.setupViews()

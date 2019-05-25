@@ -27,10 +27,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         txfPhone.delegate = self
         txfPassword.delegate = self
         txfConfirmPassword.delegate = self
-        self.navigationItem.title = "Sign Up"
+        self.navigationItem.title = "Daftar"
+        self.navigationController?.navigationBar.topItem?.title = "";
+        
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Daftar"
+    }
     
     func signUp(_ username: String,_ email: String,_ phone: String,_ password: String) {
         

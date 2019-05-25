@@ -19,6 +19,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         txfUsername.delegate = self
         txfPassword.delegate = self
         self.navigationItem.title = "Login"
+        self.navigationController?.navigationBar.topItem?.title = "";
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Login"
     }
 
     override func didReceiveMemoryWarning() {

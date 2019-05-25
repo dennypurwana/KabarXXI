@@ -24,7 +24,8 @@ class CategoryViewController: UIViewController , UICollectionViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      //  loadCategories()
+        loadCategories()
+        self.navigationItem.title = "Category"
     }
     
     func loadCategories() {

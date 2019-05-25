@@ -14,13 +14,14 @@ class BookmarkNewsViewController: UITableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Bookmark"
+        self.navigationController?.navigationBar.topItem?.title = "";
         loadAllBookmark()
         
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+         self.navigationItem.title = "Bookmark"
         loadAllBookmark()
         
     }

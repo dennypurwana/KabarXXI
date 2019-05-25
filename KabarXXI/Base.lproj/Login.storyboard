@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="keW-i4-7UL">
             <objects>
-                <viewController storyboardIdentifier="login" id="4CQ-hp-P8g" customClass="LoginViewController" customModule="KabarXXI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="4CQ-hp-P8g" customClass="LoginViewController" customModule="KabarXXI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eih-Fi-J2d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="vFG-KR-vI3"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                                <state key="normal" title="Don't have account? Register here.">
+                                                <state key="normal" title="Belum punya akun? Daftar disini.">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>

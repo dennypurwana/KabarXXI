@@ -190,6 +190,7 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
           
             let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image  ?? "")"
             cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
+            
             cell.titleNews.text = news_?.title ?? ""
             cell.dateNews.text = Date.getFormattedDate(dateStringParam: news_?.createdDate ?? "") 
            cell.totalViews.text = "\(news_?.views ?? 0 ) dilihat"
