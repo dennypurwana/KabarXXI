@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>114626482620-g05o662mgfiavv2pml4b1qovtn6v3u1o.apps.googleusercontent.com</string>
+	<string>19755219285-u43uvm10loc2o6pj8252p39qd285lssu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.114626482620-g05o662mgfiavv2pml4b1qovtn6v3u1o</string>
+	<string>com.googleusercontent.apps.19755219285-u43uvm10loc2o6pj8252p39qd285lssu</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC_EBB3emPwzMwRx6J3WFs2WuUiBvvgsHI</string>
+	<string>AIzaSyAeNFmwK5yc7eNfeS21WiHzDpMWDZpmTTo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>114626482620</string>
+	<string>19755219285</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kabarxxi.apps</string>
+	<string>com.app.kabarxxi</string>
 	<key>PROJECT_ID</key>
-	<string>kabarxxi-96c10</string>
+	<string>kabarxxi-1f30e</string>
 	<key>STORAGE_BUCKET</key>
-	<string>kabarxxi-96c10.appspot.com</string>
+	<string>kabarxxi-1f30e.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,10 +29,10 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:114626482620:ios:4594a818b1a59fed</string>
+	<string>1:19755219285:ios:540a8839df241846</string>
 	<key>DATABASE_URL</key>
-	<string>https://kabarxxi-96c10.firebaseio.com</string>
+	<string>https://kabarxxi-1f30e.firebaseio.com</string>
 	<key>ADMOB_APP_ID</key>
-	<string>ca-app-pub-8483206325913349~6912851652</string>
+	<string>ca-app-pub-2551441341997407~4062270142</string>
 </dict>
 </plist>

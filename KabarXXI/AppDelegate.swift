@@ -12,7 +12,7 @@ import UserNotifications
 import FirebaseInstanceID
 import FirebaseMessaging
 import Firebase
-
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterDelegate, MessagingDelegate{
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
     
     private func setupPushNotificationsHandling(_ application: UIApplication) {
         FirebaseApp.configure()
-        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         application.registerForRemoteNotifications()
         
         UNUserNotificationCenter.current().delegate = self

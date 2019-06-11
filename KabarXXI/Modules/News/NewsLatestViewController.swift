@@ -8,19 +8,19 @@ import MobileCoreServices
 import Firebase
 import GoogleMobileAds
 
-class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoaderDelegate {
+class NewsLatestViewController: UITableViewController , GADBannerViewDelegate {
 
     @IBOutlet var newsTableView: UITableView!
-    var interstitial: GADInterstitial!
-    let adUnitID = "ca-app-pub-8483206325913349/4378542873"
+    var adsToLoad = [GADBannerView]()
+    var loadStateForAds = [GADBannerView: Bool]()
+    let adUnitID = "ca-app-pub-3940256099942544/2934735716"
+    let adInterval = UIDevice.current.userInterfaceIdiom == .pad ? 16 : 8
+    let adViewHeight = CGFloat(100)
+   // let adUnitID = "ca-app-pub-8483206325913349/4378542873"
     var indicator = UIActivityIndicatorView()
-    let numAdsToLoad = 5
-    var nativeAds = [GADUnifiedNativeAd]()
-    var adLoader: GADAdLoader!
     var tableViewItems : [Any] = []
     var newsArray: [News] = []
     var refreshControl_: UIRefreshControl?
-    
     let disposeBag = DisposeBag()
     var totalPage = 0
     var page = 0
@@ -31,11 +31,8 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
        
         registerCell()
         setupViews()
-        setupAds()
         refreshControl_!.beginRefreshing()
         loadNews(page)
-       
-
     }
     
     func activityIndicator() {
@@ -62,23 +59,54 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
         
         tableView.register(UINib(nibName: "NewsHeaderTableViewCell", bundle: nil),forCellReuseIdentifier:  "NewsHeaderTableViewCell")
         
-        tableView.register(UINib(nibName: "UnifiedNativeAdCell", bundle: nil),
-            forCellReuseIdentifier: "UnifiedNativeAdCell")
+        tableView.register(UINib(nibName: "BannerAd", bundle: nil),
+            forCellReuseIdentifier: "BannerViewCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 135
     }
     
-    func setupAds(){
-        
-        let options = GADMultipleAdsAdLoaderOptions()
-        options.numberOfAds = numAdsToLoad
-        adLoader = GADAdLoader(adUnitID: adUnitID,
-                               rootViewController: self,
-                               adTypes: [.unifiedNative],
-                               options: [options])
-        adLoader.delegate = self
-        let request = GADRequest()
-       // request.testDevices = [kGADSimulatorID]
-        adLoader.load(request)
-        
+
+    
+    func adViewDidReceiveAd(_ adView: GADBannerView) {
+        print("received ads")
+        loadStateForAds[adView] = true
+        preloadNextAd()
+    }
+    
+    func adView(_ adView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("Failed to receive ad: \(error.localizedDescription)")
+        preloadNextAd()
+    }
+
+    
+    func addBannerAds() {
+        print("add banner")
+        var index = adInterval
+        tableView.layoutIfNeeded()
+        while index < tableViewItems.count {
+            let adSize = GADAdSizeFromCGSize(
+                CGSize(width: tableView.contentSize.width, height: adViewHeight))
+            let adView = GADBannerView(adSize: adSize)
+            adView.adUnitID = adUnitID
+            adView.rootViewController = self
+            adView.delegate = self
+            tableViewItems.insert(adView, at: index)
+            adsToLoad.append(adView)
+            loadStateForAds[adView] = false
+            index += adInterval
+        }
+    }
+    
+    func preloadNextAd() {
+        print("preload ads")
+        if !adsToLoad.isEmpty {
+            let ad = adsToLoad.removeFirst()
+            let adRequest = GADRequest()
+            adRequest.testDevices = [ kGADSimulatorID ]
+            print("testing ads")
+            ad.load(adRequest)
+        }
     }
     
     func setupViews() {
@@ -136,8 +164,14 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
             
             self?.refreshControl_?.endRefreshing()
             self?.newsTableView.finishInfiniteScroll()
+            self?.addBannerAds()
+            self?.preloadNextAd()
         }
         
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     
@@ -150,34 +184,18 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-    if let nativeAd = tableViewItems[indexPath.row] as? GADUnifiedNativeAd {
-       
-        nativeAd.rootViewController = self
-        
-        let nativeAdCell = tableView.dequeueReusableCell(
-            withIdentifier: "UnifiedNativeAdCell", for: indexPath)
-        
-        let adView : GADUnifiedNativeAdView = nativeAdCell.contentView.subviews
-            .first as! GADUnifiedNativeAdView
-    
-        adView.nativeAd = nativeAd
-        
-        (adView.headlineView as! UILabel).text = nativeAd.headline
-        (adView.priceView as! UILabel).text = nativeAd.price
-        if let starRating = nativeAd.starRating {
-            (adView.starRatingView as! UILabel).text =
-                starRating.description + "\u{2605}"
-        } else {
-            (adView.starRatingView as! UILabel).text = nil
-        }
-        (adView.bodyView as! UILabel).text = nativeAd.body
-        (adView.advertiserView as! UILabel).text = nativeAd.advertiser
-        (adView.callToActionView as! UIButton).isUserInteractionEnabled = false
-        (adView.callToActionView as! UIButton).setTitle(
-        nativeAd.callToAction, for: UIControl.State.normal)
-        
-        return nativeAdCell
-        
+        if let BannerView = tableViewItems[indexPath.row] as? GADBannerView {
+            let reusableAdCell = tableView.dequeueReusableCell(withIdentifier: "BannerViewCell", for: indexPath)
+            
+            
+            for subview in reusableAdCell.contentView.subviews {
+                subview.removeFromSuperview()
+            }
+            
+            reusableAdCell.contentView.addSubview(BannerView)
+            BannerView.center = reusableAdCell.contentView.center
+            return reusableAdCell
+            
         }
     else
     
@@ -311,10 +329,11 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if  indexPath.row == 0 {
+        if let tableItem = tableViewItems[indexPath.row] as? GADBannerView {
+            let isAdLoaded = loadStateForAds[tableItem]
+            return isAdLoaded == true ? adViewHeight : 0
+        } else if  indexPath.row == 0 {
             return 250
-            
         }
         else  {
             return 120
@@ -322,36 +341,6 @@ class NewsLatestViewController: UITableViewController , GADUnifiedNativeAdLoader
     }
     
 
-    func addNativeAds() {
-        if nativeAds.count <= 0 {
-            return
-        }
-        
-        let adInterval = 4
-        var index = 1
-        for nativeAd in nativeAds {
-            if index < tableViewItems.count {
-                tableViewItems.insert(nativeAd, at: index)
-                index += adInterval
-            } else {
-                break
-            }
-        }
-    }
-    
-    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
-        print("\(adLoader) failed with error: \(error.localizedDescription)")
-    }
-    
-    func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
-        print("Received native ad: \(nativeAd)")
-        nativeAds.append(nativeAd)
-    }
-    
-    func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
-        print("dapat ads nya")
-        addNativeAds()
-    }
 
 }
 
