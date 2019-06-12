@@ -274,7 +274,7 @@ class NewsCategoryViewController:  UIViewController
         
        let news_ = tableViewItems[indexPath.row] as? News
             print(news_?.title as Any)
-            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image  ?? "")"
+            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)   ?? "")"
             cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
             cell.titleNews.text = news_?.title
             cell.dateNews.text = Date.getFormattedDate(dateStringParam: news_?.createdDate ?? "")
@@ -287,7 +287,7 @@ class NewsCategoryViewController:  UIViewController
             
            let news_ = tableViewItems[indexPath.row] as? News
             print(news_?.title as Any)
-            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image  ?? "")"
+            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)   ?? "")"
             cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
             cell.titleNews.text = news_?.title
             cell.dateNews.text = Date.getFormattedDate(dateStringParam: news_?.createdDate ?? "") 

@@ -202,7 +202,7 @@ class NewsPremierViewController: UITableViewController , GADBannerViewDelegate{
             print("tes",indexPath.row)
             let cell = Bundle.main.loadNibNamed("NewsHeaderTableViewCell", owner: self, options: nil)?.first as! NewsHeaderTableViewCell
             let news_ = tableViewItems[indexPath.row] as? News
-            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image  ?? "")"
+            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)   ?? "")"
             cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
             cell.titleNews.text = news_?.title
             cell.dateNews.text = Date.getFormattedDate(dateStringParam: news_?.createdDate ?? "")

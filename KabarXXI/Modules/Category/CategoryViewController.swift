@@ -70,7 +70,8 @@ class CategoryViewController: UIViewController , UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
         
         let category_ = categoryArray[indexPath.row]
-        let imageUrl = Constant.ApiUrlImage+"\(category_.base64Image ?? "")"
+        let imageUrl = Constant.ApiUrlImage+"\(category_.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil) ?? "")"
+        print(imageUrl)
         cell.categoryImage.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
         cell.categoryLabel.text = category_.categoryName ?? ""
 

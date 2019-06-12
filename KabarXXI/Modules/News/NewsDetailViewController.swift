@@ -87,7 +87,7 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
         descNews.htmlToString(html: newsDescriptions_ ?? "")
         createdDate.text = Date.getFormattedDate(dateStringParam: createdDate_)
         category.text = category_
-        let imageUrl = Constant.ApiUrlImage+"\(imageNews_)"
+        let imageUrl = Constant.ApiUrlImage+"\(imageNews_.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil) )"
         imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
         
     }

@@ -49,7 +49,7 @@ class BookmarkNewsViewController: UITableViewController
     let cell = Bundle.main.loadNibNamed("NewsItemTableViewCell", owner: self, options: nil)?.first as! NewsItemTableViewCell
     
     let news_ = newsArray[indexPath.row]
-    let imageUrl = Constant.ApiUrlImage+"\(news_.base64Image  ?? "")"
+    let imageUrl = Constant.ApiUrlImage+"\(news_.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)   ?? "")"
     cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
     cell.titleNews.text = news_.title ?? ""
     cell.dateNews.text = Date.getFormattedDate(dateStringParam: news_.createdDate ?? "")

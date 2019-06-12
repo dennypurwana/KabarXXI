@@ -206,7 +206,7 @@ class NewsLatestViewController: UITableViewController , GADBannerViewDelegate {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeaderTableViewCell",for: indexPath) as! NewsHeaderTableViewCell
           
-            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image  ?? "")"
+            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)   ?? "")"
             cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
             
             cell.titleNews.text = news_?.title ?? ""
@@ -261,7 +261,7 @@ class NewsLatestViewController: UITableViewController , GADBannerViewDelegate {
            
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemTableViewCell",for: indexPath) as! NewsItemTableViewCell
           
-            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image  ?? "")"
+            let imageUrl = Constant.ApiUrlImage+"\(news_?.base64Image?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)   ?? "")"
             cell.imageNews.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "default_image"))
             cell.titleNews.text = news_?.title ?? ""
             cell.dateNews.text = Date.getFormattedDate(dateStringParam: news_?.createdDate ?? "")
