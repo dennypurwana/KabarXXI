@@ -5,8 +5,30 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var txfPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    var errorMessage: [String] = []
+    
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-         login(txfUsername.text!, txfPassword.text!)
+       
+        if (txfUsername.text == ""){
+            errorMessage.append("Username Tidak Boleh Kosong")
+        }
+        
+        if (txfPassword.text == ""){
+            errorMessage.append("Password Tidak Boleh Kosong")
+        }
+        
+        if ( errorMessage.count == 0){
+            
+             login(txfUsername.text!, txfPassword.text!)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Info", message: errorMessage.joined(separator: "\n"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
     }
     @IBAction func toRegisterButtonTapped(_ sender: UIButton) {
         showSignUpViewController()

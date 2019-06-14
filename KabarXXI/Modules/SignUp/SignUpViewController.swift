@@ -7,12 +7,35 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var txfPassword: UITextField!
     @IBOutlet weak var txfConfirmPassword: UITextField!
     @IBOutlet weak var btnSignUp: UIButton!
+    var errorMessage: [String] = []
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        if (txfUsername.text == ""){
+            errorMessage.append("Username Tidak Boleh Kosong")
+        }
         
-        signUp(txfUsername.text!, txfEmail.text!, txfPhone.text!, txfPassword.text!)
-       // showLoginViewController()
-    
+        if (txfPassword.text == ""){
+            errorMessage.append("Password Tidak Boleh Kosong")
+        }
+        if (txfEmail.text == ""){
+            errorMessage.append("Email Tidak Boleh Kosong")
+        }
+        if (txfPhone.text == ""){
+            errorMessage.append("No Telepon Tidak Boleh Kosong")
+        }
+        
+        if ( errorMessage.count == 0){
+            
+            signUp(txfUsername.text!, txfEmail.text!, txfPhone.text!, txfPassword.text!)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Info", message: errorMessage.joined(separator: "\n"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
     }
     @IBAction func toLoginButtonTapped(_ sender: UIButton) {
         showLoginViewController()
