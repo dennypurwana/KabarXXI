@@ -168,13 +168,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" image="user_male_round" translatesAutoresizingMaskIntoConstraints="NO" id="CSH-qO-5bs">
-                                <rect key="frame" x="147.66666666666666" y="168" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="2Ec-JY-GWB"/>
-                                    <constraint firstAttribute="width" constant="100" id="hX8-DR-epq"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="eVF-4K-TGR">
                                 <rect key="frame" x="50" y="298" width="275" height="227"/>
                                 <subviews>
@@ -272,11 +265,18 @@
                                     <action selector="logoutButtonTapped:" destination="jbG-sV-RDP" eventType="touchUpInside" id="C6Q-E4-Aq9"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="CSH-qO-5bs">
+                                <rect key="frame" x="137" y="177" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2Ec-JY-GWB"/>
+                                    <constraint firstAttribute="width" constant="100" id="hX8-DR-epq"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="R1L-1g-1mn" firstAttribute="centerX" secondItem="gma-JE-kap" secondAttribute="centerX" id="0WP-Xy-wBX"/>
-                            <constraint firstItem="CSH-qO-5bs" firstAttribute="centerX" secondItem="fDX-ww-6cw" secondAttribute="centerX" constant="10.166666666666657" id="20n-yt-yWg"/>
+                            <constraint firstItem="CSH-qO-5bs" firstAttribute="centerX" secondItem="fDX-ww-6cw" secondAttribute="centerX" constant="-0.5" id="20n-yt-yWg"/>
                             <constraint firstItem="r9E-mI-DSA" firstAttribute="leading" secondItem="Ndr-7S-Rua" secondAttribute="leading" id="6ua-23-seH"/>
                             <constraint firstAttribute="trailing" secondItem="Ndr-7S-Rua" secondAttribute="trailing" constant="58" id="C6y-hy-iVO"/>
                             <constraint firstItem="5cq-pR-UWK" firstAttribute="top" secondItem="gma-JE-kap" secondAttribute="bottom" constant="10" id="FgN-yA-RSA"/>
@@ -284,12 +284,12 @@
                             <constraint firstItem="gma-JE-kap" firstAttribute="leading" secondItem="fDX-ww-6cw" secondAttribute="leading" constant="50" id="S7u-lV-gKO"/>
                             <constraint firstItem="eVF-4K-TGR" firstAttribute="leading" secondItem="fDX-ww-6cw" secondAttribute="leading" constant="50" id="cRP-0h-3s8"/>
                             <constraint firstItem="Ndr-7S-Rua" firstAttribute="top" secondItem="r9E-mI-DSA" secondAttribute="bottom" constant="22" id="cdJ-Ey-4fk"/>
-                            <constraint firstItem="eVF-4K-TGR" firstAttribute="top" secondItem="CSH-qO-5bs" secondAttribute="bottom" constant="30" id="dJL-IU-wVS"/>
+                            <constraint firstItem="eVF-4K-TGR" firstAttribute="top" secondItem="CSH-qO-5bs" secondAttribute="bottom" constant="21" id="dJL-IU-wVS"/>
                             <constraint firstItem="r9E-mI-DSA" firstAttribute="trailing" secondItem="Ndr-7S-Rua" secondAttribute="trailing" id="dgz-BD-pqi"/>
                             <constraint firstItem="Ndr-7S-Rua" firstAttribute="leading" secondItem="vsu-sP-DdS" secondAttribute="leading" constant="58" id="gfc-lT-wpd"/>
                             <constraint firstItem="fDX-ww-6cw" firstAttribute="bottom" secondItem="eVF-4K-TGR" secondAttribute="bottom" constant="392" id="qWg-21-mr3"/>
-                            <constraint firstItem="CSH-qO-5bs" firstAttribute="top" secondItem="fDX-ww-6cw" secondAttribute="top" constant="80" id="rAQ-sr-vuH"/>
-                            <constraint firstItem="gma-JE-kap" firstAttribute="top" secondItem="CSH-qO-5bs" secondAttribute="bottom" constant="60" id="xr9-4L-60t"/>
+                            <constraint firstItem="CSH-qO-5bs" firstAttribute="top" secondItem="fDX-ww-6cw" secondAttribute="top" constant="89" id="rAQ-sr-vuH"/>
+                            <constraint firstItem="gma-JE-kap" firstAttribute="top" secondItem="CSH-qO-5bs" secondAttribute="bottom" constant="51" id="xr9-4L-60t"/>
                             <constraint firstItem="eVF-4K-TGR" firstAttribute="centerX" secondItem="fDX-ww-6cw" secondAttribute="centerX" id="zZ0-mi-Wi3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fDX-ww-6cw"/>
@@ -479,9 +479,9 @@
     <resources>
         <image name="category" width="26.666666030883789" height="26.666666030883789"/>
         <image name="home" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="person" width="254" height="254"/>
         <image name="play" width="30" height="30"/>
         <image name="udacity_banner" width="400" height="210"/>
         <image name="user_male" width="30" height="30"/>
-        <image name="user_male_round" width="154.28572082519531" height="154.28572082519531"/>
     </resources>
 </document>
