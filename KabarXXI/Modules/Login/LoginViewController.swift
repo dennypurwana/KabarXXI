@@ -5,10 +5,11 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var txfPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var errorMessage: [String] = []
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
        
+        var errorMessage: [String] = []
+
         if (txfUsername.text == ""){
             errorMessage.append("Username Tidak Boleh Kosong")
         }

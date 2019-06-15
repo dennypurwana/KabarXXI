@@ -7,9 +7,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var txfPassword: UITextField!
     @IBOutlet weak var txfConfirmPassword: UITextField!
     @IBOutlet weak var btnSignUp: UIButton!
-    var errorMessage: [String] = []
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        
+        var errorMessage: [String] = []
+
         if (txfUsername.text == ""){
             errorMessage.append("Username Tidak Boleh Kosong")
         }

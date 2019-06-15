@@ -74,7 +74,9 @@ class NewsDetailViewController: UIViewController, UITableViewDataSource, UITable
 
 @objc func btnShareTapped(_ sender: Any) {
     
-    let activityVC = UIActivityViewController(activityItems: [Constant.ShareNewsURL], applicationActivities: nil)
+    let shareUrl = [Constant.ShareNewsURL+"\(idNews_)"+"/"+"\(titleNews_!.replacingOccurrences(of: " ", with: "-", options: .literal, range: nil) )"]
+    
+    let activityVC = UIActivityViewController(activityItems: shareUrl, applicationActivities: nil)
     activityVC.popoverPresentationController?.sourceView = self.view
     self.present(activityVC, animated: true, completion: nil)
     

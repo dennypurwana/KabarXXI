@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1022753710293-1vt1tvd735uhv2kfe6fm4u4bhj6dl4cv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1022753710293-1vt1tvd735uhv2kfe6fm4u4bhj6dl4cv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7fpqEBE363qHIKZN3ooCo44k1pAsWktE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1022753710293</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kabarxxi.apps</string>
+	<key>PROJECT_ID</key>
+	<string>kabarxxi-45a0b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kabarxxi-45a0b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1022753710293:ios:4594a818b1a59fed</string>
+	<key>DATABASE_URL</key>
+	<string>https://kabarxxi-45a0b.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-5028324603407349~6662845304</string>
+</dict>
+</plist>
