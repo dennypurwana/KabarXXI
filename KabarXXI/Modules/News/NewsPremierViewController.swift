@@ -19,10 +19,9 @@ class NewsPremierViewController: UITableViewController , GADBannerViewDelegate{
     var page = 0
     var adsToLoad = [GADBannerView]()
     var loadStateForAds = [GADBannerView: Bool]()
-    let adUnitID = "ca-app-pub-3940256099942544/2934735716"
+    let adUnitID = "ca-app-pub-5028324603407349/6350363421"
     let adInterval = UIDevice.current.userInterfaceIdiom == .pad ? 16 : 8
     let adViewHeight = CGFloat(100)
-    // let adUnitID = "ca-app-pub-8483206325913349/4378542873"
     var indicator = UIActivityIndicatorView()
     var tableViewItems : [Any] = []
    
@@ -105,7 +104,7 @@ class NewsPremierViewController: UITableViewController , GADBannerViewDelegate{
         if !adsToLoad.isEmpty {
             let ad = adsToLoad.removeFirst()
             let adRequest = GADRequest()
-            adRequest.testDevices = [ kGADSimulatorID ]
+//            adRequest.testDevices = [ kGADSimulatorID ]
             print("testing ads")
             ad.load(adRequest)
         }

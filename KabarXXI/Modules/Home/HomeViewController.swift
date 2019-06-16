@@ -11,7 +11,7 @@ class HomeViewController: UIViewController
     
     
     let items = ["Terbaru", "Berita Utama", "Berita Populer", "Opini","Info & Tips"]
-    var interstitial : GADInterstitial!
+//    var interstitial : GADInterstitial!
     var newsArray: [News] = []
     var totalPage = 0
     var page = 0
@@ -26,51 +26,51 @@ class HomeViewController: UIViewController
         }
         setupNavBar()
         setupTabbarNews()
-        interstitial = createAndLoadIntertitial()
-        if interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
-        }
-        else {
-            print("ads interstial not ready")
-        }
+//        interstitial = createAndLoadIntertitial()
+//        if interstitial.isReady {
+//            interstitial.present(fromRootViewController: self)
+//        }
+//        else {
+//            print("ads interstial not ready")
+//        }
       
     }
     
     
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        print("interstitialDidReceiveAd")
-        interstitial = createAndLoadIntertitial()
-    }
+//    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+//        print("interstitialDidReceiveAd")
+//        interstitial = createAndLoadIntertitial()
+//    }
     
-    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
-        print("interstitialWillPresentScreen")
-        interstitial = createAndLoadIntertitial()
-    }
-    
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadIntertitial()
-    }
-    
-    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
-        print("interstitialWillLeaveApplication")
-        interstitial = createAndLoadIntertitial()
-    }
+//    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+//        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+//    }
+//
+//    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+//        print("interstitialWillPresentScreen")
+//        interstitial = createAndLoadIntertitial()
+//    }
+//
+//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//        interstitial = createAndLoadIntertitial()
+//    }
+//
+//    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+//        print("interstitialWillLeaveApplication")
+//        interstitial = createAndLoadIntertitial()
+//    }
    
     
-    func createAndLoadIntertitial() -> GADInterstitial{
-        
-        let intertitial = GADInterstitial(adUnitID: "ca-app-pub-8483206325913349/5655965527")
-        intertitial.delegate = self
-        let request = GADRequest()
-        //request.testDevices = [kGADSimulatorID]
-        intertitial.load(request)
-        return intertitial
-        
-    }
+//    func createAndLoadIntertitial() -> GADInterstitial{
+//
+//        let intertitial = GADInterstitial(adUnitID: "ca-app-pub-8483206325913349/5655965527")
+//        intertitial.delegate = self
+//        let request = GADRequest()
+//        //request.testDevices = [kGADSimulatorID]
+//        intertitial.load(request)
+//        return intertitial
+//
+//    }
     
 
     
