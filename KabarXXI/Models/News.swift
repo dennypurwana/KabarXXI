@@ -8,7 +8,6 @@
 
 import Foundation
 
-import Foundation
 struct News : Codable {
     
     let createdDate:String?

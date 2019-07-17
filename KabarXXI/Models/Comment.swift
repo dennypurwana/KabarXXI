@@ -8,7 +8,6 @@
 
 import Foundation
 
-import Foundation
 struct Comment : Codable {
     
     let createdDate:String?

@@ -1,7 +1,6 @@
 
 import Foundation
 
-import Foundation
 struct CommentResponse : Codable {
     
     let message:String?

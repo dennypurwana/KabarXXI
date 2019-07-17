@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct LoginResponse : Codable {
     
     let access_token:String?

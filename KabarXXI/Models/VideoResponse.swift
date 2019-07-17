@@ -2,7 +2,6 @@
 import Foundation
 
 
-import Foundation
 struct VideoResponse : Codable {
     
     let message:String

@@ -1,7 +1,6 @@
 
 import Foundation
 
-import Foundation
 struct NewsResponse : Codable {
     
     let message:String?

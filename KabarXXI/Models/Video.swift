@@ -8,7 +8,6 @@
 
 import Foundation
 
-import Foundation
 struct Video : Codable {
     
     let id:Int?

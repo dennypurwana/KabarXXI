@@ -1,4 +1,5 @@
 import Foundation
+
 struct ApplicationSetting : Codable {
     
     let id :Int

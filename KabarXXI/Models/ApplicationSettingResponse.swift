@@ -1,5 +1,6 @@
 
 import Foundation
+
 struct ApplicationSettingResponse : Codable {
     
     let message:String?
