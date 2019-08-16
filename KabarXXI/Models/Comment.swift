@@ -16,7 +16,5 @@ struct Comment : Codable {
     let users:User?
     let description:String?
     
-    
-    
 }
 

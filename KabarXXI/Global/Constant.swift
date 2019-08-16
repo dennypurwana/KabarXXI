@@ -7,5 +7,6 @@ struct Constant {
     static let ApiUrlVideo : String = "http://202.157.176.44:8083/cjRoNHMxNHZpZGVvLXMzY3IzdC1rYWJhcnh4aQ/"
     static let AppURL : String = "http://itunes.apple.com/lookup?bundleId=com.kabarxxi.apps"
     static let ShareNewsURL : String = "http://www.kabarxxi.com/laman-berita/berita/"
+    static let AdmobAccount : String = "http://www.kabarxxi.com/laman-berita/berita/"
 
 }

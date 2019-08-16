@@ -19,7 +19,7 @@ class MostPopularViewController: UITableViewController  , GADBannerViewDelegate{
     @IBOutlet var newsPopularTableView: UITableView!
     var adsToLoad = [GADBannerView]()
     var loadStateForAds = [GADBannerView: Bool]()
-    let adUnitID = "ca-app-pub-5028324603407349/6350363421"
+    let adUnitID = Constant.AdmobAccount
     let adInterval = UIDevice.current.userInterfaceIdiom == .pad ? 16 : 8
     let adViewHeight = CGFloat(100)
     var indicator = UIActivityIndicatorView()

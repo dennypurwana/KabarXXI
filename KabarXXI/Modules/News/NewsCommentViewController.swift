@@ -30,7 +30,7 @@ class NewsCommentViewController: UIViewController
         
         else{
             
-            let  alert = UIAlertController(title: "Info", message:                 "Anda harus login terlebih dahulu.", preferredStyle: .alert)
+            let  alert = UIAlertController(title: "Info", message: "Anda harus login terlebih dahulu.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { (action) in
                 alert.dismiss(animated: true, completion: nil)
                 self.showLoginViewController()

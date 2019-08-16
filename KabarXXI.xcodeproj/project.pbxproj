@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,8 +32,10 @@
 		814147B22272246900A06B62 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814147B12272246900A06B62 /* LoginResponse.swift */; };
 		81493BB92287B0FB000BEEAB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81493BB82287B0FB000BEEAB /* UIImage.swift */; };
 		814A2E972299180D00A61891 /* CenterScaleToFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814A2E962299180D00A61891 /* CenterScaleToFitImageView.swift */; };
-		8161B21022B48A9E005067CE /* UnifiedNativeAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8161B20F22B48A9E005067CE /* UnifiedNativeAdCell.xib */; };
-		8161B21222B48F0A005067CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8161B21122B48F0A005067CE /* GoogleService-Info.plist */; };
+		8152240122DEA58D00229D2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8152240022DEA58D00229D2B /* GoogleService-Info.plist */; };
+		8152240322DEA6A000229D2B /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152240222DEA6A000229D2B /* Advertiser.swift */; };
+		8152240522DEA7A400229D2B /* AdvertiserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152240422DEA7A400229D2B /* AdvertiserResponse.swift */; };
+		815BFAD5230771DE006FB842 /* AdvertiserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815BFAD4230771DE006FB842 /* AdvertiserService.swift */; };
 		816611862287A83F00D2ABF0 /* ApplicationSettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816611852287A83F00D2ABF0 /* ApplicationSettingService.swift */; };
 		816611882287A87700D2ABF0 /* ApplicationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816611872287A87700D2ABF0 /* ApplicationSetting.swift */; };
 		8166118A2287A88600D2ABF0 /* ApplicationSettingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816611892287A88600D2ABF0 /* ApplicationSettingResponse.swift */; };
@@ -140,8 +142,10 @@
 		814147B12272246900A06B62 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		81493BB82287B0FB000BEEAB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		814A2E962299180D00A61891 /* CenterScaleToFitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterScaleToFitImageView.swift; sourceTree = "<group>"; };
-		8161B20F22B48A9E005067CE /* UnifiedNativeAdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UnifiedNativeAdCell.xib; path = ../../../../../../../Downloads/UnifiedNativeAdCell.xib; sourceTree = "<group>"; };
-		8161B21122B48F0A005067CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8152240022DEA58D00229D2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8152240222DEA6A000229D2B /* Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
+		8152240422DEA7A400229D2B /* AdvertiserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiserResponse.swift; sourceTree = "<group>"; };
+		815BFAD4230771DE006FB842 /* AdvertiserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiserService.swift; sourceTree = "<group>"; };
 		816611852287A83F00D2ABF0 /* ApplicationSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettingService.swift; sourceTree = "<group>"; };
 		816611872287A87700D2ABF0 /* ApplicationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSetting.swift; sourceTree = "<group>"; };
 		816611892287A88600D2ABF0 /* ApplicationSettingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSettingResponse.swift; sourceTree = "<group>"; };
@@ -271,8 +275,8 @@
 				812F5115214CE240004CEC77 /* Extensions */,
 				812F5114214CE234004CEC77 /* Models */,
 				812F50E5214CD9F7004CEC77 /* AppDelegate.swift */,
+				8152240022DEA58D00229D2B /* GoogleService-Info.plist */,
 				810A976F2291D2D900AC35DF /* Info.plist */,
-				8161B21122B48F0A005067CE /* GoogleService-Info.plist */,
 				812F50E7214CD9F7004CEC77 /* ViewController.swift */,
 				812F50EC214CD9F9004CEC77 /* Assets.xcassets */,
 				812F5118214CE328004CEC77 /* RootSign.storyboard */,
@@ -322,6 +326,8 @@
 				816611872287A87700D2ABF0 /* ApplicationSetting.swift */,
 				816611892287A88600D2ABF0 /* ApplicationSettingResponse.swift */,
 				8104B2462294B149006B2F38 /* NewsDetailResponse.swift */,
+				8152240222DEA6A000229D2B /* Advertiser.swift */,
+				8152240422DEA7A400229D2B /* AdvertiserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				81B3FEA9226DBD9800259553 /* VideoServices.swift */,
 				81FAFF662275AF1B00010ECF /* CommentServices.swift */,
 				816611852287A83F00D2ABF0 /* ApplicationSettingService.swift */,
+				815BFAD4230771DE006FB842 /* AdvertiserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -359,6 +366,7 @@
 		812F5117214CE274004CEC77 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8152240622DEA91D00229D2B /* Advertiser */,
 				81D48F1A227BFC4800F95C48 /* Notification */,
 				81F84F602268DF7F002714C9 /* News */,
 				816623E72150CE6D00CFC4AF /* Category */,
@@ -404,6 +412,13 @@
 				812F512D214E711B004CEC77 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8152240622DEA91D00229D2B /* Advertiser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Advertiser;
 			sourceTree = "<group>";
 		};
 		816623E72150CE6D00CFC4AF /* Category */ = {
@@ -460,7 +475,6 @@
 		81F84F602268DF7F002714C9 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				8161B20F22B48A9E005067CE /* UnifiedNativeAdCell.xib */,
 				811AEEAC22AFED340006F5D8 /* BannerAd.xib */,
 				81CCEFA62262D65A004F6D71 /* NewsHeaderTableViewCell.swift */,
 				81CCEFA22262D620004F6D71 /* NewsItemTableViewCell.swift */,
@@ -598,7 +612,7 @@
 				};
 			};
 			buildConfigurationList = 812F50DD214CD9F7004CEC77 /* Build configuration list for PBXProject "KabarXXI" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -624,9 +638,7 @@
 			files = (
 				812F50ED214CD9F9004CEC77 /* Assets.xcassets in Resources */,
 				8189C289226EBC5200122ADA /* NewsRelatedItemViewCell.xib in Resources */,
-				8161B21222B48F0A005067CE /* GoogleService-Info.plist in Resources */,
 				812F5133214E7364004CEC77 /* Splashscreen.storyboard in Resources */,
-				8161B21022B48A9E005067CE /* UnifiedNativeAdCell.xib in Resources */,
 				81B3FEA4226DAAC600259553 /* VideoCollectionViewCell.xib in Resources */,
 				81CCEFA52262D620004F6D71 /* NewsItemTableViewCell.xib in Resources */,
 				812F5125214E649C004CEC77 /* Login.storyboard in Resources */,
@@ -637,6 +649,7 @@
 				81B91412214FA6F3004A3855 /* TabbarMenu.storyboard in Resources */,
 				812F511A214CE328004CEC77 /* RootSign.storyboard in Resources */,
 				810A97702291D2D900AC35DF /* Info.plist in Resources */,
+				8152240122DEA58D00229D2B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +791,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8152240522DEA7A400229D2B /* AdvertiserResponse.swift in Sources */,
 				810FDA5A2155C1BE00D78C2C /* NewsResponse.swift in Sources */,
 				816624052150F75B00CFC4AF /* UIViewController.swift in Sources */,
 				816624132151590D00CFC4AF /* DateExtensions.swift in Sources */,
@@ -805,6 +819,7 @@
 				81E76797214FFE5A00D6B654 /* TabbarMenuViewController.swift in Sources */,
 				81D48F1C227BFCC900F95C48 /* NotificationViewController.swift in Sources */,
 				81493BB92287B0FB000BEEAB /* UIImage.swift in Sources */,
+				815BFAD5230771DE006FB842 /* AdvertiserService.swift in Sources */,
 				81FAFF692275D5DD00010ECF /* Comment.swift in Sources */,
 				81B3FEA6226DB29500259553 /* Video.swift in Sources */,
 				81B3FEAA226DBD9800259553 /* VideoServices.swift in Sources */,
@@ -824,6 +839,7 @@
 				81F84F682268E0C6002714C9 /* MostCommentedViewController.swift in Sources */,
 				81B9140E214FA683004A3855 /* SettingsViewController.swift in Sources */,
 				812F50E6214CD9F7004CEC77 /* AppDelegate.swift in Sources */,
+				8152240322DEA6A000229D2B /* Advertiser.swift in Sources */,
 				8104B2472294B149006B2F38 /* NewsDetailResponse.swift in Sources */,
 				814A2E972299180D00A61891 /* CenterScaleToFitImageView.swift in Sources */,
 				81CD2DC022815F2300FD0574 /* Toast.swift in Sources */,
@@ -1037,16 +1053,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KabarXXI/KabarXXI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NN5J36K9Z;
 				INFOPLIST_FILE = KabarXXI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kabarxxi.apps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1058,16 +1076,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KabarXXI/KabarXXI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NN5J36K9Z;
 				INFOPLIST_FILE = KabarXXI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kabarxxi.apps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

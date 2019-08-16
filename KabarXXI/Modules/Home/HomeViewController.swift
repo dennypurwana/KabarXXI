@@ -10,7 +10,7 @@ class HomeViewController: UIViewController
 {
     
     
-    let items = ["Terbaru", "Berita Utama", "Berita Populer", "Opini","Info & Tips"]
+    let items = ["Terbaru", "Berita Utama", "Advertiser", "Berita Populer", "Opini","Info & Tips"]
 //    var interstitial : GADInterstitial!
     var newsArray: [News] = []
     var totalPage = 0
